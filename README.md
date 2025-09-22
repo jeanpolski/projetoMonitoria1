@@ -1,61 +1,70 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Projeto de Monitoria
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+O objetivo do projeto é fornecer uma plataforma de fácil gestão e manuseio, onde usuários, monitores ou alunos possam exercer e prestar sua função de forma mais dinâmica e organizada.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🚀 Como rodar?
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+```bash
+git clone https://github.com/jeanpolski/projetoMonitoria1
+cd <DIRETORIO_DO_REPOSITORIO>
+cp .env.example .env
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1. Abra o arquivo `.env` e altere:
 
-## Learning Laravel
+   * `DB_DATABASE=<NOME_DO_SEU_BANCO>`
+   * `DB_CONNECTION=<BANCO_DE_DADOS>` — (usei `mysql` no meu caso)
+2. Remova quaisquer comentários relacionados ao DB (se houver).
+3. Abra o XAMPP e inicie o **Apache** e o **MySQL**.
+4. Crie um banco de dados com o mesmo nome usado em `DB_DATABASE`.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Em seguida, execute:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+```bash
+php artisan key:generate
+composer install
+php artisan migrate
+php artisan serve
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 📘 Diário de Progressão
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### ✅ Feito:
 
-### Premium Partners
+* Construído CRUD.
+* Banco de dados: **MySQL**.
+* Tabelas de **Monitores**, **Matérias**, **Sessões** e **Avaliações**.
+* Controllers de **Monitores**, **Sessões** e **Disponibilidade**.
+* Models:
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+  * `MonitoriaAvailability`
+  * `Rating`
+  * `Session`
+  * `Subject`
+  * `Monitors`
+* View de **Sessions** 99% funcional! 🎉
+* View de **Availability** 99% funcional! 🎉
+* View de **Monitors** 99% funcional! 🎉
 
-## Contributing
+### 🛠️ A fazer:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+* [x] Adicionar métodos `create()` e `edit()` em `Session`.
+* [ ] Refinar métodos nas demais Models.
+* [ ] Adicionar novas views.
+* [ ] **Autenticação**: diferenciar alunos de monitores e suas permissões.
 
-## Code of Conduct
+### 🗺 Navegação:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+* /sessions -- Mostra sessões marcadas pelos monitores.
+* /monitors -- Registra monitores e valida o Aluno como um.
+* /availability -- Mostra horário semanal de atuação do monitor.
 
-## Security Vulnerabilities
+### 📋 Notas:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+* Não foi definido método Show em nenhuma view, pois não adicionei outras informações mais específicas para abordar.
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
