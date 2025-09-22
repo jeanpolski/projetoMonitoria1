@@ -38,14 +38,17 @@ php artisan serve
 * Construído CRUD.
 * Banco de dados: **MySQL**.
 * Tabelas de **Monitores**, **Matérias**, **Sessões** e **Avaliações**.
+* Controllers de **Monitores**, **Sessões** e **Disponibilidade**.
 * Models:
 
   * `MonitoriaAvailability`
   * `Rating`
   * `Session`
   * `Subject`
-* Rotas configuradas para `Session`.
+  * `Monitors`
 * View de **Sessions** 99% funcional! 🎉
+* View de **Availability** 99% funcional! 🎉
+* View de **Monitors** 99% funcional! 🎉
 
 ### 🛠️ A fazer:
 
@@ -53,5 +56,15 @@ php artisan serve
 * [ ] Refinar métodos nas demais Models.
 * [ ] Adicionar novas views.
 * [ ] **Autenticação**: diferenciar alunos de monitores e suas permissões.
+
+### 🗺 Navegação:
+
+* /sessions -- Mostra sessões marcadas pelos monitores.
+* /monitors -- Registra monitores e valida o Aluno como um.
+* /availability -- Mostra horário semanal de atuação do monitor.
+
+### 📋 Notas:
+
+* Não foi definido método Show em nenhuma view, pois não adicionei outras informações mais específicas para abordar.
 
 ---
