@@ -5,19 +5,31 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Availability extends Model{
+class Availability extends Model
+{
     use HasFactory;
     protected $table = 'availability';
     protected $fillable = [
         'monitor_id',
         'dia_semana',
         'hora_inicio',
-        'hora_fim'
+        'hora_fim',
     ];
 
     public function monitor()
     {
-        return
-        $this->belongsTo(User::class, 'monitor_id');
+        return $this->belongsTo(User::class, 'monitor_id');
+    }
+
+    public static function diasSemana()
+    {
+        return [
+            'segunda' => 'Segunda-feira',
+            'terca'   => 'Terça-feira',
+            'quarta'  => 'Quarta-feira',
+            'quinta'  => 'Quinta-feira',
+            'sexta'   => 'Sexta-feira',
+            'sabado'  => 'Sábado'
+        ];
     }
 }

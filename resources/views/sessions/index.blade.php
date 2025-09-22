@@ -10,6 +10,7 @@
         <tr>
             <th>ID</th>
             <th>Monitor</th>
+            <th>Matéria</th>
             <th>Aluno</th>
             <th>Data</th>
             <th>Hora Início</th>
@@ -23,6 +24,7 @@
         <tr>
             <td>{{ $session->id }}</td>
             <td>{{ $session->monitor->name ?? 'N/A' }}</td>
+            <td>{{ $availability->monitor->subject->name ?? '-' }}</td>
             <td>{{ $session->aluno->name ?? 'N/A' }}</td>
             <td>{{ $session->data }}</td>
             <td>{{ $session->hora_inicio }}</td>

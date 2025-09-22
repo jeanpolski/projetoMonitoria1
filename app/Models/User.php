@@ -15,7 +15,8 @@ class User extends Authenticatable
         'email',
         'password',
         'course',
-        'role'
+        'role',
+        'subject_id'
     ];
 
     protected $hidden = [
@@ -27,14 +28,18 @@ class User extends Authenticatable
     monitoriasComoMonitor()
     {
         return
-        $this->hasMany(Session::class, 'monitor_id');
+            $this->hasMany(Session::class, 'monitor_id');
     }
 
-    public function 
+    public function
     monitoriasComoAluno()
     {
         return
-        $this->hasMany(Session::class, 'aluno_id');
-    }     
-}
+            $this->hasMany(Session::class, 'aluno_id');
+    }
 
+    public function subject()
+    {
+        return $this->belongsTo(Subject::class);
+    }
+}
