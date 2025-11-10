@@ -42,4 +42,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Subject::class);
     }
+
+    public function ratings()
+    {
+        return $this->hasMany(Rating::class, 'aluno_id');
+    }
 }

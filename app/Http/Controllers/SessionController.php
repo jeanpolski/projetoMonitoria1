@@ -10,7 +10,7 @@ class SessionController extends Controller
 {
     public function index()
     {
-        $sessions = Session::with(['monitor', 'aluno'])->get(); //ADICIONAR RATING, FIZ MERDA E N SABIA COMO ARRUMAR
+        $sessions = Session::all();
         return view('sessions.index', compact('sessions'));
     }
 
@@ -18,8 +18,11 @@ class SessionController extends Controller
     {
         $alunos = User::where('role', 'aluno')->get();
         $monitores = User::where('role', 'monitor')->get();
-
-        return view('sessions.create', compact('alunos', 'monitores'));
+        return view('sessions.create', [
+            'monitores' => $monitores,
+            'alunos' => $alunos,
+            'monitoresJson' => json_encode($monitores, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT)
+        ]);
     }
 
 
