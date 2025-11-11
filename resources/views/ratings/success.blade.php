@@ -6,7 +6,6 @@
     <title>Avaliação Enviada</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
     <script>
-        // Redireciona após 2 segundos
         setTimeout(function() {
             window.location.href = "{{ route('sessions.index') }}";
         }, 2000);

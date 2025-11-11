@@ -9,7 +9,7 @@
             <h4>Avaliar Sessão com {{ $session->monitor->name }}</h4>
         </div>
         <div class="card-body">
-            <form action="{{ route('rating.store') }}" method="POST">
+            <form action="{{ route('ratings.store') }}" method="POST">
                 @csrf
                 <input type="hidden" name="session_id" value="{{ $session->id }}">
 

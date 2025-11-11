@@ -6,19 +6,20 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('rating', function (Blueprint $table) {
             $table->id();
-
-            $table->foreignId('session_id')->constrained('session')->onDelete('cascade');
+            $table->foreignId('session_id')->constrained('monitor_sessions')->onDelete('cascade');
             $table->foreignId('aluno_id')->constrained('users')->onDelete('cascade');
-            $table->tinyInteger('rate');
+            $table->tinyInteger('rate'); // 1 a 5
             $table->text('note')->nullable();
             $table->timestamps();
         });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('rating');
     }
 };

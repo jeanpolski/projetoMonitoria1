@@ -4,129 +4,75 @@
 
 @section('content')
 <style>
-    .availability-card {
-        border: 2px solid #e9ecef;
+    .simple-card {
+        background: white;
         border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 15px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .simple-title {
+        font-size: 1.1em;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #333;
+    }
+    
+    .availability-item {
         padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
         margin-bottom: 10px;
         cursor: pointer;
-        transition: all 0.3s ease;
-    }
-    .availability-card:hover {
-        border-color: #0d6efd;
-        background-color: #f8f9fa;
-        transform: translateX(5px);
-    }
-    .availability-card.selected {
-        border-color: #0d6efd;
-        background-color: #e7f1ff;
-    }
-    .availability-card .day {
-        font-weight: bold;
-        font-size: 1.1em;
-        color: #0d6efd;
-        margin-bottom: 5px;
-    }
-    .availability-card .time {
-        color: #6c757d;
-        font-size: 0.95em;
-    }
-    .availability-card .time i {
-        margin-right: 5px;
-    }
-    .step-indicator {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 30px;
-        position: relative;
-    }
-    .step-indicator::before {
-        content: '';
-        position: absolute;
-        top: 20px;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background: #e9ecef;
-        z-index: 0;
-    }
-    .step {
-        background: white;
-        padding: 10px 20px;
-        border-radius: 50px;
-        border: 2px solid #e9ecef;
-        z-index: 1;
-        font-weight: 500;
-        color: #6c757d;
-    }
-    .step.active {
-        border-color: #0d6efd;
-        color: #0d6efd;
-        background: #e7f1ff;
-    }
-    .step.completed {
-        border-color: #198754;
-        color: #198754;
-        background: #d1e7dd;
-    }
-    .time-slots {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        gap: 10px;
-        margin-top: 15px;
-    }
-    .time-slot {
-        padding: 12px;
-        border: 2px solid #e9ecef;
-        border-radius: 8px;
-        text-align: center;
-        cursor: pointer;
         transition: all 0.2s;
-        font-weight: 500;
     }
-    .time-slot:hover {
+    
+    .availability-item:hover {
         border-color: #0d6efd;
         background: #f8f9fa;
     }
-    .time-slot.selected {
+    
+    .availability-item.selected {
         border-color: #0d6efd;
-        background: #0d6efd;
-        color: white;
+        background: #e7f1ff;
+        border-width: 2px;
     }
-    .section-card {
-        background: white;
-        border-radius: 12px;
-        padding: 25px;
-        margin-bottom: 20px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    .section-title {
-        font-size: 1.2em;
+    
+    .day-label {
         font-weight: 600;
-        margin-bottom: 20px;
-        color: #212529;
-        display: flex;
-        align-items: center;
-        gap: 10px;
+        color: #0d6efd;
+        margin-bottom: 5px;
     }
-    .badge-info {
-        background: #cfe2ff;
-        color: #084298;
-        padding: 5px 12px;
+    
+    .time-label {
+        color: #666;
+        font-size: 0.95em;
+    }
+    
+    .btn-action {
         border-radius: 20px;
-        font-size: 0.85em;
-        font-weight: 500;
+        font-weight: 600;
+        padding: 10px 25px;
+    }
+    
+    @media (max-width: 576px) {
+        .simple-card {
+            padding: 15px;
+        }
+        
+        .container {
+            padding: 10px;
+        }
+        
+        h1 {
+            font-size: 1.5em;
+        }
     }
 </style>
 
-<div class="container" style="max-width: 900px;">
-    <h1 class="mb-4">📅 Nova Sessão de Monitoria</h1>
-
-    <div class="step-indicator">
-        <div class="step" id="step1">1. Monitor</div>
-        <div class="step" id="step2">2. Disponibilidade</div>
-        <div class="step" id="step3">3. Aluno e Horário</div>
-    </div>
+<div class="container" style="max-width: 800px;">
+    <h1 class="mb-4">Nova Sessão</h1>
 
     <form action="{{ route('sessions.store') }}" method="POST" id="sessionForm">
         @csrf
@@ -135,59 +81,47 @@
         <input type="hidden" name="hora_inicio" id="hidden_hora_inicio">
         <input type="hidden" name="hora_fim" id="hidden_hora_fim">
 
-        <div class="section-card">
-            <div class="section-title">
-                👨‍🏫 Selecione o Monitor
-            </div>
-            <select name="monitor_id" id="monitor_id" class="form-control form-control-lg" required>
-                <option value="">Escolha um monitor...</option>
+        <div class="simple-card">
+            <div class="simple-title">Monitor</div>
+            <select name="monitor_id" id="monitor_id" class="form-control" required>
+                <option value="">Selecione um monitor...</option>
                 @foreach($monitores ?? [] as $monitor)
                     <option value="{{ $monitor->id }}">{{ $monitor->name }}</option>
                 @endforeach
             </select>
         </div>
 
-        <div class="section-card" id="availabilitySection" style="display: none;">
-            <div class="section-title">
-                📆 Escolha um Horário Disponível
-                <span class="badge-info" id="monitorName"></span>
-            </div>
+        <div class="simple-card" id="availabilitySection" style="display: none;">
+            <div class="simple-title">Horários Disponíveis</div>
             <div id="availabilityCards"></div>
         </div>
 
-        <div class="section-card" id="studentSection" style="display: none;">
-            <div class="section-title">
-                👤 Informações da Sessão
-            </div>
+        <div class="simple-card" id="studentSection" style="display: none;">
+            <div class="simple-title">Detalhes da Sessão</div>
             
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label class="form-label fw-bold">Aluno</label>
-                    <select name="aluno_id" class="form-control" required>
-                        <option value="" disabled selected>Selecione um aluno</option>
-                        @foreach($alunos ?? [] as $aluno)
-                            <option value="{{ $aluno->id }}">{{ $aluno->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                    <label class="form-label fw-bold">Data da Sessão</label>
-                    <input type="date" name="data" class="form-control" required>
-                </div>
+            <div class="mb-3">
+                <label class="form-label">Aluno</label>
+                <select name="aluno_id" class="form-control" required>
+                    <option value="">Selecione um aluno...</option>
+                    @foreach($alunos ?? [] as $aluno)
+                        <option value="{{ $aluno->id }}">{{ $aluno->name }}</option>
+                    @endforeach
+                </select>
             </div>
 
-            <div class="alert alert-info mt-3">
-                <strong>📋 Resumo:</strong>
-                <div id="summary" class="mt-2"></div>
+            <div class="mb-3">
+                <label class="form-label">Data da Sessão</label>
+                <input type="date" name="data" class="form-control" required>
             </div>
+
+            <div class="alert alert-info" id="summary"></div>
         </div>
 
-        <div class="d-flex gap-2">
-            <button type="submit" class="btn btn-success btn-lg" id="submitBtn" style="display: none;">
-                ✅ Confirmar Agendamento
+        <div class="d-flex gap-2 flex-wrap">
+            <button type="submit" class="btn btn-primary btn-action" id="submitBtn" style="display: none;">
+                Confirmar
             </button>
-            <a href="{{ route('sessions.index') }}" class="btn btn-secondary btn-lg">
+            <a href="{{ route('sessions.index') }}" class="btn btn-secondary btn-action">
                 ← Voltar
             </a>
         </div>
@@ -202,7 +136,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const availabilityCards = document.getElementById("availabilityCards");
     const submitBtn = document.getElementById("submitBtn");
     const summary = document.getElementById("summary");
-    const monitorNameBadge = document.getElementById("monitorName");
     
     let selectedAvailability = null;
     let selectedMonitorName = '';
@@ -220,25 +153,20 @@ document.addEventListener("DOMContentLoaded", function () {
         const monitorId = this.value;
         selectedMonitorName = this.options[this.selectedIndex].text;
         
-        document.getElementById("step1").classList.add("completed");
-        document.getElementById("step2").classList.add("active");
-        
-        availabilityCards.innerHTML = "<p class='text-center'>⏳ Carregando disponibilidades...</p>";
+        availabilityCards.innerHTML = "<p class='text-center text-muted'>Carregando...</p>";
         availabilitySection.style.display = "block";
         studentSection.style.display = "none";
         submitBtn.style.display = "none";
 
         if (!monitorId) return;
 
-        monitorNameBadge.textContent = selectedMonitorName;
-
         fetch(`/api/monitors/${monitorId}/availabilities`)
             .then(response => response.json())
             .then(avails => {
                 if (!Array.isArray(avails) || avails.length === 0) {
                     availabilityCards.innerHTML = `
-                        <div class="alert alert-warning">
-                            😔 Este monitor não possui horários disponíveis cadastrados.
+                        <div class="alert alert-warning mb-0">
+                            Nenhum horário disponível
                         </div>
                     `;
                     return;
@@ -246,23 +174,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 availabilityCards.innerHTML = '';
                 avails.forEach(disp => {
-                    const card = document.createElement("div");
-                    card.className = "availability-card";
-                    card.dataset.id = disp.id;
-                    card.dataset.inicio = disp.hora_inicio;
-                    card.dataset.fim = disp.hora_fim;
+                    const item = document.createElement("div");
+                    item.className = "availability-item";
+                    item.dataset.id = disp.id;
+                    item.dataset.inicio = disp.hora_inicio;
+                    item.dataset.fim = disp.hora_fim;
                     
                     const diaLabel = diasSemana[disp.dia_semana] || disp.dia_semana;
                     
-                    card.innerHTML = `
-                        <div class="day">📅 ${diaLabel}</div>
-                        <div class="time">
-                            <i>⏰</i> ${disp.hora_inicio} até ${disp.hora_fim}
-                        </div>
+                    item.innerHTML = `
+                        <div class="day-label">${diaLabel}</div>
+                        <div class="time-label">${disp.hora_inicio} - ${disp.hora_fim}</div>
                     `;
                     
-                    card.addEventListener("click", function() {
-                        document.querySelectorAll('.availability-card').forEach(c => 
+                    item.addEventListener("click", function() {
+                        document.querySelectorAll('.availability-item').forEach(c => 
                             c.classList.remove('selected')
                         );
                         this.classList.add('selected');
@@ -272,23 +198,20 @@ document.addEventListener("DOMContentLoaded", function () {
                         document.getElementById("hidden_hora_inicio").value = disp.hora_inicio;
                         document.getElementById("hidden_hora_fim").value = disp.hora_fim;
                         
-                        document.getElementById("step2").classList.add("completed");
-                        document.getElementById("step3").classList.add("active");
-                        
                         studentSection.style.display = "block";
-                        submitBtn.style.display = "block";
+                        submitBtn.style.display = "inline-block";
                         
                         updateSummary();
                     });
                     
-                    availabilityCards.appendChild(card);
+                    availabilityCards.appendChild(item);
                 });
             })
             .catch(err => {
                 console.error('Erro:', err);
                 availabilityCards.innerHTML = `
-                    <div class="alert alert-danger">
-                        ❌ Erro ao carregar disponibilidades. Tente novamente.
+                    <div class="alert alert-danger mb-0">
+                        Erro ao carregar horários
                     </div>
                 `;
             });
@@ -301,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function () {
         summary.innerHTML = `
             <strong>Monitor:</strong> ${selectedMonitorName}<br>
             <strong>Dia:</strong> ${diaLabel}<br>
-            <strong>Horário:</strong> ${selectedAvailability.hora_inicio} até ${selectedAvailability.hora_fim}
+            <strong>Horário:</strong> ${selectedAvailability.hora_inicio} - ${selectedAvailability.hora_fim}
         `;
     }
 });

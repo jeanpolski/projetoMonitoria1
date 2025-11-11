@@ -11,10 +11,15 @@ class Rating extends Model
 
     protected $table = 'rating';
 
-    protected $fillable = ['session_id', 'rate', 'note'];
+    protected $fillable = ['session_id', 'aluno_id', 'rate', 'note'];
 
     public function session()
     {
         return $this->belongsTo(Session::class);
+    }
+
+    public function aluno()
+    {
+        return $this->belongsTo(User::class, 'aluno_id');
     }
 }

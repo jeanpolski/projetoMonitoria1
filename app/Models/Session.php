@@ -11,6 +11,16 @@ class Session extends Model
 {
     use HasFactory;
 
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saving(function ($session) {
+            $session->status = strtoupper($session->status);
+        });
+    }
+
     protected $table = 'monitor_sessions';
     protected $fillable = [
         'monitor_id',
@@ -19,6 +29,11 @@ class Session extends Model
         'hora_inicio',
         'hora_fim',
         'status'
+    ];
+
+
+    protected $attributes = [
+        'status' => 'PENDENTE',
     ];
 
     public function monitor()
