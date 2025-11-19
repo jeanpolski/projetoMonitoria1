@@ -26,3 +26,7 @@ use App\Http\Controllers\SubjectController;
 Route::resource('subjects', SubjectController::class);
 
 Route::resource('/monitoriaProjeto1', App\Http\Controllers\MonitoriaProjeto1Controller::class);
+
+Route::get('/sobre', function () {
+    return view('about');
+})->name('about');

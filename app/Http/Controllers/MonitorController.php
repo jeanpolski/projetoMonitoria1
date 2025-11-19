@@ -10,14 +10,13 @@ class MonitorController extends Controller
 {
     public function index()
     {
-        // Apenas monitores, já com a matéria carregada
         $monitors = User::where('role', 'monitor')->with('subject')->get();
         return view('monitors.index', compact('monitors'));
     }
 
     public function create()
     {
-        $subjects = Subject::all(); // tabela 'subject' já configurada no model
+        $subjects = Subject::all();
         return view('monitors.create', compact('subjects'));
     }
 
@@ -51,7 +50,7 @@ class MonitorController extends Controller
             'name'       => 'required|string|max:255',
             'email'      => "required|email|unique:users,email,{$monitor->id}",
             'password'   => 'nullable|string|min:6|confirmed',
-            'subject_id' => 'required|exists:subject,id', // tabela singular
+            'subject_id' => 'required|exists:subject,id',
         ]);
 
         if (!empty($data['password'])) {

@@ -12,7 +12,6 @@ class RatingController extends Controller
     {
         $session = Session::findOrFail($sessionId);
         
-        // Comparação case-insensitive
         if (strtolower($session->status) !== 'concluida') {
             return redirect()->route('sessions.index')
                 ->with('error', 'Apenas sessões concluídas podem ser avaliadas!');
