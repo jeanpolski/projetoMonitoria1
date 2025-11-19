@@ -41,19 +41,22 @@ php artisan serve
 * Models:
 
   * `MonitoriaAvailability`
+  * `Availability`
   * `Rating`
   * `Session`
   * `Subject`
-  * `Monitors`
+  * `Users`
 
 ### 🛠️ A fazer:
 
-* [ ] **Refinar Views**: refinar visualização mobile/desktop de algumas telas.
+* [x] **Refinar Views**: refinar visualização mobile/desktop de algumas telas.
+* [ ] **Erro de Sucess**: Consertar falha na exibição de mensagem de confirmação após usuário avaliar uma monitoria realizada.
 * [ ] **Autenticação**: diferenciar alunos de monitores e suas permissões.
 
 ### 🗺 Navegação:
 
 * / -- Página Inicial.
+* /about -- Mostra informações sobre a faculdade, o projeto e os desenvolvedores.
 * /sessions -- Mostra sessões marcadas pelos monitores.
 * /sessions/id/rate -- Usuários podem avaliar uma sessão já concluída.
 * /monitors -- Registra monitores e valida o Aluno como um.
