@@ -1,76 +1,79 @@
-# Monitoria FATEC PG
+# Sistema de Monitoria FATEC PG
 
-Sistema de gerenciamento de monitorias para alunos e monitores da faculdade. Permite agendamento de sessões, avaliações entre pares e visualização de disponibilidade.
+Sistema de gerenciamento de monitorias para a FATEC de Praia Grande. Plataforma que conecta alunos monitores com estudantes para organizar sessões de acompanhamento acadêmico.
 
-## Instalação
+## Início Rápido
 
-Clone o repositório e configure as variáveis de ambiente:
+### Pré-requisitos
+- PHP 8.1+
+- Composer
+- MySQL 8.0+
+- Laravel 11+
 
-\`\`\`bash
+### Instalação
+
+```bash
 git clone https://github.com/jeanpolski/projetoMonitoria1
 cd projetoMonitoria1
 cp .env.example .env
-\`\`\`
-
-Configure o banco de dados no `.env`:
-
-\`\`\`env
-DB_CONNECTION=mysql
-DB_DATABASE=seu_banco_aqui
-DB_USERNAME=root
-DB_PASSWORD=sua_senha
-\`\`\`
-
-Instale as dependências e inicie o servidor:
-
-\`\`\`bash
 composer install
 php artisan key:generate
+```
+
+### Configuração
+
+Configure o arquivo `.env`:
+
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=monitoria
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Inicie a aplicação:
+
+```bash
 php artisan migrate
 php artisan serve
-\`\`\`
+```
 
-Acesse a aplicação em `http://localhost:8000`
+Acesse em `http://localhost:8000/`
 
 ## Tecnologias
 
-- **Backend**: Laravel 11, PHP, Eloquent ORM, Laravel Breeze
-- **Frontend**: Blade, Bootstrap, TailwindCSS, JavaScript
-- **Banco**: MySQL
-- **Versionamento**: Git
+- Backend: Laravel (PHP), Laravel Breeze, Eloquent ORM
+- Frontend: Blade, TailwindCSS, Bootstrap, JavaScript, AJAX, HTML5, CSS3
+- Banco de Dados: MySQL
+- Versionamento: Git, GitHub
 
 ## Funcionalidades
 
-- Autenticação de usuários (alunos e monitores)
-- CRUD completo de monitorias, matérias, horários e avaliações
+- Autenticação e autorização por tipo de usuário
+- Gerenciamento de monitorias, matérias e horários
 - Sistema de avaliações em tempo real
-- Controle de permissões por tipo de usuário
-- Design responsivo
-- Rotas protegidas com middleware
+- Controle de permissões (Monitor, Aluno)
+- Interface responsiva
+- Proteção CSRF
 
-## Próximas melhorias
+## Tipos de Usuário
 
-- Histórico de monitorias por usuário
-- Painel administrativo expandido
+- **Monitor**;
+- **Aluno**;
 
-## Principais rotas
+## Rotas Principais
 
-| Rota | Descrição |
-|------|-----------|
-| `/` | Página inicial |
-| `/about` | Sobre o projeto |
-| `/sessions` | Todas as monitorias |
-| `/sessions/{id}/rate` | Avaliar uma monitoria |
-| `/monitors` | Lista de monitores |
-| `/monitors-create` | Cadastrar novo monitor |
-| `/availability` | Grade de horários |
-| `/subjects` | Matérias disponíveis |
-| `/register` | Criar conta |
-| `/login` | Fazer login |
+- `GET /` - Página inicial
+- `GET /about` - Sobre
+- `GET /sessions` - Listagem de monitorias
+- `POST /sessions/{id}/rate` - Avaliar monitoria
+- `GET /monitors` - Listagem de monitores
+- `POST /monitors/create` - Autenticação de monitores
+- `GET /subjects` - Listagem de matérias
+- `GET /availability` - Gerenciar horários
+- `POST /register` - Cadastro
+- `POST /login` - Autenticação
 
-## Detalhes técnicos
-
-- Bootstrap e TailwindCSS integrados
-- Avaliações com JavaScript + Fetch API (CSRF protegido)
-- CRUD implementado com Eloquent ORM
-- Versionamento completo no Git
+## Notas
