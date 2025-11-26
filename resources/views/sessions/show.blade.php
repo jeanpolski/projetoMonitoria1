@@ -8,7 +8,7 @@
         background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
         min-height: 100vh;
     }
-    
+
     .show-container {
         min-height: 100vh;
         display: flex;
@@ -16,7 +16,7 @@
         justify-content: center;
         padding: 40px 20px;
     }
-    
+
     .show-card {
         background: white;
         border-radius: 24px;
@@ -25,7 +25,7 @@
         max-width: 700px;
         width: 100%;
     }
-    
+
     .page-title {
         color: #1e293b;
         font-weight: 700;
@@ -33,19 +33,19 @@
         margin-bottom: 8px;
         text-align: center;
     }
-    
+
     .page-subtitle {
         color: #64748b;
         font-size: 16px;
         text-align: center;
         margin-bottom: 40px;
     }
-    
+
     .info-grid {
         display: grid;
         gap: 20px;
     }
-    
+
     .info-item {
         padding: 20px;
         background: #f8fafc;
@@ -53,12 +53,12 @@
         border: 2px solid #e2e8f0;
         transition: all 0.2s;
     }
-    
+
     .info-item:hover {
         border-color: #cbd5e1;
         background: #f1f5f9;
     }
-    
+
     .info-label {
         display: flex;
         align-items: center;
@@ -70,13 +70,13 @@
         letter-spacing: 0.5px;
         margin-bottom: 8px;
     }
-    
+
     .info-value {
         color: #1e293b;
         font-size: 16px;
         font-weight: 500;
     }
-    
+
     .status-badge {
         display: inline-flex;
         align-items: center;
@@ -87,31 +87,31 @@
         text-transform: uppercase;
         letter-spacing: 0.3px;
     }
-    
+
     .status-concluida {
         background: #dcfce7;
         color: #166534;
         border: 2px solid #bbf7d0;
     }
-    
+
     .status-confirmada {
         background: #dbeafe;
         color: #1e40af;
         border: 2px solid #bfdbfe;
     }
-    
+
     .status-pendente {
         background: #fef3c7;
         color: #92400e;
         border: 2px solid #fde68a;
     }
-    
+
     .status-cancelada {
         background: #fee2e2;
         color: #991b1b;
         border: 2px solid #fecaca;
     }
-    
+
     .btn-back {
         width: 100%;
         background: white;
@@ -129,7 +129,7 @@
         transition: all 0.2s;
         margin-top: 32px;
     }
-    
+
     .btn-back:hover {
         background: #f8fafc;
         border-color: #cbd5e1;
@@ -138,12 +138,12 @@
         text-decoration: none;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
-    
+
     @media (max-width: 768px) {
         .show-card {
             padding: 32px 24px;
         }
-        
+
         .page-title {
             font-size: 24px;
         }
@@ -239,15 +239,15 @@
                 </div>
                 <div class="info-value">
                     @if(strtolower($session->status) === 'concluida')
-                        <span class="status-badge status-concluida">Concluída</span>
+                    <span class="status-badge status-concluida">Concluída</span>
                     @elseif(strtolower($session->status) === 'confirmada')
-                        <span class="status-badge status-confirmada">Confirmada</span>
+                    <span class="status-badge status-confirmada">Confirmada</span>
                     @elseif(strtolower($session->status) === 'pendente')
-                        <span class="status-badge status-pendente">Pendente</span>
+                    <span class="status-badge status-pendente">Pendente</span>
                     @elseif(strtolower($session->status) === 'cancelada')
-                        <span class="status-badge status-cancelada">Cancelada</span>
+                    <span class="status-badge status-cancelada">Cancelada</span>
                     @else
-                        <span class="status-badge">{{ $session->status }}</span>
+                    <span class="status-badge">{{ $session->status }}</span>
                     @endif
                 </div>
             </div>

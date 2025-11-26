@@ -9,7 +9,7 @@
         background: linear-gradient(to bottom right, #f8f9fa, #e9ecef);
         min-height: 100vh;
     }
-    
+
     .form-card {
         max-width: 600px;
         margin: 40px auto;
@@ -18,28 +18,28 @@
         padding: 40px;
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     }
-    
+
     .form-header {
         text-align: center;
         margin-bottom: 30px;
     }
-    
+
     .form-header h3 {
         font-size: 28px;
         font-weight: 700;
         color: #1e293b;
         margin-bottom: 8px;
     }
-    
+
     .form-header p {
         color: #64748b;
         font-size: 15px;
     }
-    
+
     .form-group {
         margin-bottom: 24px;
     }
-    
+
     .form-label {
         display: flex;
         align-items: center;
@@ -49,8 +49,9 @@
         margin-bottom: 8px;
         font-size: 14px;
     }
-    
-    .form-control, .form-select {
+
+    .form-control,
+    .form-select {
         width: 100%;
         padding: 12px 16px;
         border: 2px solid #e2e8f0;
@@ -59,45 +60,46 @@
         transition: all 0.3s ease;
         background: #f8fafc;
     }
-    
-    .form-control:focus, .form-select:focus {
+
+    .form-control:focus,
+    .form-select:focus {
         outline: none;
         border-color: #3b82f6;
         background: white;
         box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
     }
-    
+
     textarea.form-control {
         resize: vertical;
         min-height: 120px;
     }
-    
+
     .alert {
         border-radius: 12px;
         border: none;
         padding: 16px;
         margin-bottom: 24px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
-    
+
     .alert-danger {
         background: #fee2e2;
         color: #991b1b;
     }
-    
+
     .alert-danger strong {
         display: flex;
         align-items: center;
         gap: 8px;
         margin-bottom: 8px;
     }
-    
+
     .button-group {
         display: flex;
         gap: 12px;
         margin-top: 32px;
     }
-    
+
     .btn-action {
         flex: 1;
         padding: 14px 24px;
@@ -112,24 +114,24 @@
         justify-content: center;
         gap: 8px;
     }
-    
+
     .btn-primary {
         background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
         color: white;
         box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
     }
-    
+
     .btn-primary:hover {
         transform: translateY(-2px);
         box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
     }
-    
+
     .btn-secondary {
         background: #f1f5f9;
         color: #475569;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
-    
+
     .btn-secondary:hover {
         background: #e2e8f0;
         transform: translateY(-1px);
@@ -171,8 +173,8 @@
                 </svg>
                 Nome da Matéria
             </label>
-            <input type="text" name="name" id="name" class="form-control" 
-                   value="{{ old('name') }}" placeholder="Ex: Matemática" required>
+            <input type="text" name="name" id="name" class="form-control"
+                value="{{ old('name') }}" placeholder="Ex: Matemática" required>
         </div>
 
         <div class="form-group">
@@ -186,8 +188,8 @@
                 </svg>
                 Descrição (Opcional)
             </label>
-            <textarea name="description" id="description" class="form-control" 
-                      placeholder="Descreva a matéria...">{{ old('description') }}</textarea>
+            <textarea name="description" id="description" class="form-control"
+                placeholder="Descreva a matéria...">{{ old('description') }}</textarea>
         </div>
 
         <div class="button-group">

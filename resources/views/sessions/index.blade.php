@@ -9,7 +9,7 @@
         margin: 0 auto;
         padding: 32px 24px;
     }
-    
+
     .page-header {
         display: flex;
         align-items: center;
@@ -18,14 +18,14 @@
         flex-wrap: wrap;
         gap: 16px;
     }
-    
+
     .page-title {
         font-size: 32px;
         font-weight: 700;
         color: #0f172a;
         margin: 0;
     }
-    
+
     .btn-add {
         background: #3b82f6;
         color: white;
@@ -40,14 +40,14 @@
         gap: 8px;
         transition: all 0.2s;
     }
-    
+
     .btn-add:hover {
         background: #2563eb;
         transform: translateY(-1px);
         box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
         color: white;
     }
-    
+
     .filters-card {
         background: white;
         border-radius: 16px;
@@ -56,12 +56,12 @@
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
         border: 1px solid #e2e8f0;
     }
-    
+
     .search-box {
         position: relative;
         margin-bottom: 20px;
     }
-    
+
     .search-icon {
         position: absolute;
         left: 16px;
@@ -71,7 +71,7 @@
         width: 20px;
         height: 20px;
     }
-    
+
     .search-input {
         width: 100%;
         padding: 14px 16px 14px 48px;
@@ -80,19 +80,19 @@
         font-size: 15px;
         transition: all 0.2s;
     }
-    
+
     .search-input:focus {
         border-color: #3b82f6;
         box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
         outline: none;
     }
-    
+
     .filter-buttons {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
     }
-    
+
     .filter-btn {
         padding: 10px 20px;
         border-radius: 10px;
@@ -104,19 +104,19 @@
         cursor: pointer;
         transition: all 0.2s;
     }
-    
+
     .filter-btn:hover {
         border-color: #cbd5e1;
         background: #f8fafc;
         color: #334155;
     }
-    
+
     .filter-btn.active {
         background: #3b82f6;
         color: white;
         border-color: #3b82f6;
     }
-    
+
     .sessions-table-card {
         background: white;
         border-radius: 16px;
@@ -125,22 +125,22 @@
         border: 1px solid #e2e8f0;
         margin-bottom: 24px;
     }
-    
+
     .table-responsive {
         overflow-x: auto;
     }
-    
+
     .sessions-table {
         width: 100%;
         margin: 0;
         border-collapse: collapse;
     }
-    
+
     .sessions-table thead {
         background: #f8fafc;
         border-bottom: 2px solid #e2e8f0;
     }
-    
+
     .sessions-table thead th {
         padding: 16px 20px;
         text-align: left;
@@ -151,27 +151,27 @@
         letter-spacing: 0.5px;
         border: none;
     }
-    
+
     .sessions-table tbody tr {
         border-bottom: 1px solid #f1f5f9;
         transition: background 0.15s;
     }
-    
+
     .sessions-table tbody tr:hover {
         background: #f8fafc;
     }
-    
+
     .sessions-table tbody tr:last-child {
         border-bottom: none;
     }
-    
+
     .sessions-table tbody td {
         padding: 16px 20px;
         font-size: 15px;
         color: #334155;
         vertical-align: middle;
     }
-    
+
     .status-badge {
         display: inline-flex;
         align-items: center;
@@ -182,31 +182,31 @@
         text-transform: uppercase;
         letter-spacing: 0.3px;
     }
-    
+
     .status-concluida {
         background: #dcfce7;
         color: #166534;
         border: 1px solid #bbf7d0;
     }
-    
+
     .status-confirmada {
         background: #dbeafe;
         color: #1e40af;
         border: 1px solid #bfdbfe;
     }
-    
+
     .status-pendente {
         background: #fef3c7;
         color: #92400e;
         border: 1px solid #fde68a;
     }
-    
+
     .status-cancelada {
         background: #fee2e2;
         color: #991b1b;
         border: 1px solid #fecaca;
     }
-    
+
     .rating-badge {
         display: inline-flex;
         align-items: center;
@@ -219,7 +219,7 @@
         color: #92400e;
         border: 1px solid #fde68a;
     }
-    
+
     .btn-avaliar {
         display: inline-flex;
         align-items: center;
@@ -234,18 +234,18 @@
         border: none;
         transition: all 0.2s;
     }
-    
+
     .btn-avaliar:hover {
         background: #2563eb;
         transform: translateY(-1px);
         color: white;
     }
-    
+
     .action-buttons {
         display: flex;
         gap: 8px;
     }
-    
+
     .btn-action {
         width: 36px;
         height: 36px;
@@ -258,41 +258,41 @@
         transition: all 0.2s;
         text-decoration: none;
     }
-    
+
     .btn-action:hover {
         transform: translateY(-2px);
     }
-    
+
     .btn-view {
         background: #f0f9ff;
         color: #0284c7;
     }
-    
+
     .btn-view:hover {
         background: #e0f2fe;
         box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
     }
-    
+
     .btn-edit {
         background: #eff6ff;
         color: #3b82f6;
     }
-    
+
     .btn-edit:hover {
         background: #dbeafe;
         box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
     }
-    
+
     .btn-delete {
         background: #fef2f2;
         color: #ef4444;
     }
-    
+
     .btn-delete:hover {
         background: #fee2e2;
         box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
     }
-    
+
     .empty-state {
         text-align: center;
         padding: 80px 24px;
@@ -300,40 +300,40 @@
         border-radius: 16px;
         border: 2px dashed #e2e8f0;
     }
-    
+
     .empty-state-icon {
         width: 80px;
         height: 80px;
         margin: 0 auto 24px;
         color: #cbd5e1;
     }
-    
+
     .empty-state-title {
         font-size: 20px;
         font-weight: 600;
         color: #334155;
         margin-bottom: 8px;
     }
-    
+
     .empty-state-text {
         color: #64748b;
         font-size: 15px;
         margin-bottom: 24px;
     }
-    
+
     .no-results {
         display: none;
         text-align: center;
         padding: 60px 24px;
     }
-    
+
     .no-results-icon {
         width: 64px;
         height: 64px;
         margin: 0 auto 16px;
         color: #cbd5e1;
     }
-    
+
     .btn-back {
         background: white;
         color: #64748b;
@@ -348,24 +348,24 @@
         gap: 8px;
         transition: all 0.2s;
     }
-    
+
     .btn-back:hover {
         background: #f8fafc;
         border-color: #cbd5e1;
         color: #334155;
         transform: translateY(-1px);
     }
-    
+
     @media (max-width: 768px) {
         .page-header {
             flex-direction: column;
             align-items: flex-start;
         }
-        
+
         .page-title {
             font-size: 24px;
         }
-        
+
         .sessions-table thead th,
         .sessions-table tbody td {
             padding: 12px 16px;
@@ -424,12 +424,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                @foreach($sessions as $session)
+                    @foreach($sessions as $session)
                     @php
-                        $temAvaliacao = isset($session->rating) && $session->rating !== null;
+                    $temAvaliacao = isset($session->rating) && $session->rating !== null;
                     @endphp
-                    <tr class="session-row" 
-                        data-status="{{ strtolower(trim($session->status)) }}" 
+                    <tr class="session-row"
+                        data-status="{{ strtolower(trim($session->status)) }}"
                         data-avaliada="{{ $temAvaliacao ? 'sim' : 'nao' }}"
                         data-search="{{ strtolower($session->monitor->name ?? '') }} {{ strtolower($session->aluno->name ?? '') }} {{ strtolower($session->monitor->subject->name ?? '') }}">
                         <td><strong>#{{ $session->id }}</strong></td>
@@ -440,34 +440,34 @@
                         <td>{{ substr($session->hora_inicio, 0, 5) }} - {{ substr($session->hora_fim, 0, 5) }}</td>
                         <td>
                             @if(strtolower($session->status) === 'concluida')
-                                <span class="status-badge status-concluida">Concluída</span>
+                            <span class="status-badge status-concluida">Concluída</span>
                             @elseif(strtolower($session->status) === 'confirmada')
-                                <span class="status-badge status-confirmada">Confirmada</span>
+                            <span class="status-badge status-confirmada">Confirmada</span>
                             @elseif(strtolower($session->status) === 'pendente')
-                                <span class="status-badge status-pendente">Pendente</span>
+                            <span class="status-badge status-pendente">Pendente</span>
                             @elseif(strtolower($session->status) === 'cancelada')
-                                <span class="status-badge status-cancelada">Cancelada</span>
+                            <span class="status-badge status-cancelada">Cancelada</span>
                             @else
-                                <span class="status-badge">{{ $session->status }}</span>
+                            <span class="status-badge">{{ $session->status }}</span>
                             @endif
                         </td>
                         <td>
                             @if($temAvaliacao)
-                                <span class="rating-badge">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                                    </svg>
-                                    {{ $session->rating->rate }}/5
-                                </span>
+                            <span class="rating-badge">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                </svg>
+                                {{ $session->rating->rate }}/5
+                            </span>
                             @elseif(strtolower($session->status) === 'concluida')
-                                <a href="{{ route('ratings.create', $session->id) }}" class="btn-avaliar">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                                    </svg>
-                                    Avaliar
-                                </a>
+                            <a href="{{ route('ratings.create', $session->id) }}" class="btn-avaliar">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                </svg>
+                                Avaliar
+                            </a>
                             @else
-                                <span style="color: #94a3b8;">-</span>
+                            <span style="color: #94a3b8;">-</span>
                             @endif
                         </td>
                         <td>
@@ -478,6 +478,7 @@
                                         <circle cx="12" cy="12" r="3"></circle>
                                     </svg>
                                 </a>
+                                @if(auth()->user()->role === 'monitor')
                                 <a href="{{ route('sessions.edit', $session->id) }}" class="btn-action btn-edit" title="Editar">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
@@ -485,7 +486,7 @@
                                     </svg>
                                 </a>
                                 <form action="{{ route('sessions.destroy', $session->id) }}" method="POST" style="display:inline; margin: 0;"
-                                      onsubmit="return confirm('Tem certeza que deseja excluir esta sessão?')">
+                                    onsubmit="return confirm('Tem certeza que deseja excluir esta sessão?')">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn-action btn-delete" title="Excluir">
@@ -495,10 +496,11 @@
                                         </svg>
                                     </button>
                                 </form>
+                                @endif
                             </div>
                         </td>
                     </tr>
-                @endforeach
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -547,76 +549,76 @@
 
 @section('scripts')
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.getElementById('searchInput');
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const rows = document.querySelectorAll('.session-row');
-    const noResults = document.getElementById('noResults');
-    const table = document.querySelector('.sessions-table-card');
-    
-    let currentFilter = 'all';
-    let currentSearch = '';
-    
-    if (filterBtns.length > 0) {
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                currentFilter = this.dataset.filter;
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('searchInput');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const rows = document.querySelectorAll('.session-row');
+        const noResults = document.getElementById('noResults');
+        const table = document.querySelector('.sessions-table-card');
+
+        let currentFilter = 'all';
+        let currentSearch = '';
+
+        if (filterBtns.length > 0) {
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentFilter = this.dataset.filter;
+                    applyFilters();
+                });
+            });
+        }
+
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                currentSearch = this.value.toLowerCase().trim();
                 applyFilters();
             });
-        });
-    }
-    
-    if (searchInput) {
-        searchInput.addEventListener('input', function() {
-            currentSearch = this.value.toLowerCase().trim();
-            applyFilters();
-        });
-    }
-    
-    function applyFilters() {
-        let visibleCount = 0;
-        
-        rows.forEach(row => {
-            let showByFilter = false;
-            let showBySearch = false;
-            
-            const rowStatus = row.dataset.status.toLowerCase().trim();
-            const rowAvaliada = row.dataset.avaliada;
-            
-            if (currentFilter === 'all') {
-                showByFilter = true;
-            } else if (currentFilter === 'avaliada') {
-                showByFilter = rowAvaliada === 'sim';
-            } else if (currentFilter === 'pendavaliacao') {
-                showByFilter = rowStatus === 'concluida' && rowAvaliada === 'nao';
-            } else {
-                showByFilter = rowStatus === currentFilter;
-            }
-            
-            if (currentSearch === '') {
-                showBySearch = true;
-            } else {
-                showBySearch = row.dataset.search.includes(currentSearch);
-            }
-            
-            if (showByFilter && showBySearch) {
-                row.style.display = '';
-                visibleCount++;
-            } else {
-                row.style.display = 'none';
-            }
-        });
-        
-        if (visibleCount === 0) {
-            table.style.display = 'none';
-            noResults.style.display = 'block';
-        } else {
-            table.style.display = 'block';
-            noResults.style.display = 'none';
         }
-    }
-});
+
+        function applyFilters() {
+            let visibleCount = 0;
+
+            rows.forEach(row => {
+                let showByFilter = false;
+                let showBySearch = false;
+
+                const rowStatus = row.dataset.status.toLowerCase().trim();
+                const rowAvaliada = row.dataset.avaliada;
+
+                if (currentFilter === 'all') {
+                    showByFilter = true;
+                } else if (currentFilter === 'avaliada') {
+                    showByFilter = rowAvaliada === 'sim';
+                } else if (currentFilter === 'pendavaliacao') {
+                    showByFilter = rowStatus === 'concluida' && rowAvaliada === 'nao';
+                } else {
+                    showByFilter = rowStatus === currentFilter;
+                }
+
+                if (currentSearch === '') {
+                    showBySearch = true;
+                } else {
+                    showBySearch = row.dataset.search.includes(currentSearch);
+                }
+
+                if (showByFilter && showBySearch) {
+                    row.style.display = '';
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            if (visibleCount === 0) {
+                table.style.display = 'none';
+                noResults.style.display = 'block';
+            } else {
+                table.style.display = 'block';
+                noResults.style.display = 'none';
+            }
+        }
+    });
 </script>
 @endsection

@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('session', function (Blueprint $table) {
             $table->id();
-            
             $table->foreignId('monitor_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('aluno_id')->constrained('users')->onDelete('cascade');
             $table->date('date');

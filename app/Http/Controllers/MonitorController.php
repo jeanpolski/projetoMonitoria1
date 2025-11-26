@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Subject;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MonitorController extends Controller
 {
@@ -14,14 +15,28 @@ class MonitorController extends Controller
         return view('monitors.index', compact('monitors'));
     }
 
+    public function show(User $monitor)
+    {
+        return view('monitors.show', compact('monitor'));
+    }
+
+
     public function create()
     {
+        if (!Auth::check() || Auth::user()->role !== 'monitor') {
+            abort(403);
+        }
+
         $subjects = Subject::all();
         return view('monitors.create', compact('subjects'));
     }
 
     public function store(Request $request)
     {
+        if (!Auth::check() || Auth::user()->role !== 'monitor') {
+            abort(403);
+        }
+
         $data = $request->validate([
             'name'       => 'required|string|max:255',
             'email'      => 'required|email|unique:users,email',
@@ -31,21 +46,28 @@ class MonitorController extends Controller
 
         $data['role'] = 'monitor';
         $data['password'] = bcrypt($data['password']);
+
         User::create($data);
 
-
-        return redirect()->route('monitors.index')
-            ->with('success', 'Monitor cadastrado com sucesso!');
+        return redirect()->route('monitors.index')->with('success', 'Monitor cadastrado com sucesso!');
     }
 
     public function edit(User $monitor)
     {
+        if (!Auth::check() || Auth::user()->role !== 'monitor') {
+            abort(403);
+        }
+
         $subjects = Subject::all();
         return view('monitors.edit', compact('monitor', 'subjects'));
     }
 
     public function update(Request $request, User $monitor)
     {
+        if (!Auth::check() || Auth::user()->role !== 'monitor') {
+            abort(403);
+        }
+
         $data = $request->validate([
             'name'       => 'required|string|max:255',
             'email'      => "required|email|unique:users,email,{$monitor->id}",
@@ -61,14 +83,17 @@ class MonitorController extends Controller
 
         $monitor->update($data);
 
-        return redirect()->route('monitors.index')
-            ->with('success', 'Monitor atualizado com sucesso!');
+        return redirect()->route('monitors.index')->with('success', 'Monitor atualizado com sucesso!');
     }
 
     public function destroy(User $monitor)
     {
+        if (!Auth::check() || Auth::user()->role !== 'monitor') {
+            abort(403);
+        }
+
         $monitor->delete();
-        return redirect()->route('monitors.index')
-            ->with('success', 'Monitor removido com sucesso!');
+
+        return redirect()->route('monitors.index')->with('success', 'Monitor removido com sucesso!');
     }
 }

@@ -6,11 +6,11 @@
 <style>
     .about-container {
         min-height: 100vh;
-        background: linear-gradient(to bottom right, #f9fafb, #e5e7eb);
+        background: #f8fafc;
         padding: 3rem 1rem;
     }
     .about-content {
-        max-width: 1000px;
+        max-width: 900px;
         margin: 0 auto;
     }
     .about-header {
@@ -19,25 +19,26 @@
     }
     .about-header h1 {
         font-size: 2.5rem;
-        font-weight: bold;
-        color: #1f2937;
+        font-weight: 700;
+        color: #1e293b;
         margin-bottom: 0.5rem;
     }
     .about-header p {
-        color: #6b7280;
+        color: #64748b;
         font-size: 1.1rem;
     }
     .about-card {
         background: white;
-        border-radius: 1rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 0.75rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
         padding: 2rem;
         margin-bottom: 1.5rem;
         transition: all 0.3s ease;
+        border: 1px solid #e2e8f0;
     }
     .about-card:hover {
-        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
-        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-color: #cbd5e1;
     }
     .card-header {
         display: flex;
@@ -45,33 +46,34 @@
         margin-bottom: 1.5rem;
     }
     .card-header h2 {
-        font-size: 1.75rem;
-        font-weight: bold;
-        color: #1f2937;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #1e293b;
         margin: 0;
     }
     .card-icon {
-        width: 32px;
-        height: 32px;
+        width: 28px;
+        height: 28px;
         margin-right: 1rem;
         flex-shrink: 0;
     }
     .card-text {
-        color: #374151;
-        line-height: 1.7;
+        color: #475569;
+        line-height: 1.6;
         margin-bottom: 1rem;
     }
     .highlight-box {
-        background: #eff6ff;
-        border-left: 4px solid #3b82f6;
+        background: #f0f9ff;
+        border-left: 3px solid #0284c7;
         border-radius: 0.5rem;
-        padding: 1.5rem;
+        padding: 1.25rem;
         margin-top: 1rem;
     }
     .highlight-box h3 {
         font-weight: 600;
-        color: #1f2937;
+        color: #1e293b;
         margin-bottom: 1rem;
+        font-size: 0.95rem;
     }
     .feature-list {
         list-style: none;
@@ -81,20 +83,43 @@
     .feature-list li {
         display: flex;
         align-items: flex-start;
-        color: #374151;
-        margin-bottom: 0.75rem;
+        color: #475569;
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
     }
     .feature-list svg {
-        width: 20px;
-        height: 20px;
-        color: #3b82f6;
+        width: 18px;
+        height: 18px;
+        color: #0284c7;
         margin-right: 0.75rem;
         margin-top: 2px;
         flex-shrink: 0;
     }
+    /* Simplified tech badge styling */
+    .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 0.75rem;
+        margin-top: 1rem;
+    }
+    .tech-badge {
+        background: #e2e8f0;
+        color: #1e293b;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        text-align: center;
+        font-weight: 500;
+        font-size: 0.9rem;
+        transition: all 0.2s ease;
+        border: 1px solid #cbd5e1;
+    }
+    .tech-badge:hover {
+        background: #cbd5e1;
+        border-color: #94a3b8;
+    }
     .info-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
         gap: 1rem;
         margin-top: 1rem;
     }
@@ -102,61 +127,59 @@
         background: #f0fdf4;
         border-radius: 0.5rem;
         padding: 1rem;
+        border: 1px solid #dbeafe;
     }
     .info-box h3 {
         font-weight: 600;
-        color: #1f2937;
+        color: #1e293b;
         margin-bottom: 0.5rem;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
     .info-box p {
-        color: #374151;
+        color: #475569;
         margin: 0;
+        font-size: 0.9rem;
     }
     .github-btn {
         display: inline-flex;
         align-items: center;
         padding: 0.75rem 1.5rem;
-        background: #1f2937;
+        background: #1e293b;
         color: white;
         font-weight: 600;
         border-radius: 0.5rem;
         text-decoration: none;
         transition: all 0.3s ease;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        font-size: 0.95rem;
     }
     .github-btn:hover {
-        background: #374151;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        transform: translateY(-1px);
+        background: #334155;
         color: white;
     }
     .github-btn svg {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
         margin-right: 0.5rem;
     }
     .back-btn {
         display: inline-flex;
         align-items: center;
         padding: 0.75rem 1.5rem;
-        background: #3b82f6;
+        background: #0284c7;
         color: white;
         font-weight: 600;
         border-radius: 0.5rem;
         text-decoration: none;
         transition: all 0.3s ease;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        font-size: 0.95rem;
     }
     .back-btn:hover {
-        background: #2563eb;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        transform: translateY(-1px);
+        background: #0369a1;
         color: white;
     }
     .back-btn svg {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
         margin-right: 0.5rem;
     }
     .btn-container {
@@ -174,7 +197,7 @@
 
         <div class="about-card">
             <div class="card-header">
-                <svg class="card-icon" style="color: #3b82f6;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="card-icon" style="color: #0284c7;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
                 <h2>Sobre a Aplicação</h2>
@@ -186,6 +209,12 @@
             <div class="highlight-box">
                 <h3>Funcionalidades Principais:</h3>
                 <ul class="feature-list">
+                    <li>
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span>Login de monitor e aluno com suas respectivas funcionalidades</span>
+                    </li>
                     <li>
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -214,19 +243,56 @@
             </div>
         </div>
 
+        <!-- Novo card com as tecnologias utilizadas -->
         <div class="about-card">
             <div class="card-header">
-                <svg class="card-icon" style="color: #10b981;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="card-icon" style="color: #475569;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+                <h2>Tecnologias Utilizadas</h2>
+            </div>
+            <p class="card-text">
+                O projeto foi desenvolvido com um stack moderno e robusto, combinando frameworks e ferramentas de qualidade para garantir performance, manutenibilidade e escalabilidade.
+            </p>
+            <div class="tech-grid">
+                <div class="tech-badge">Laravel</div>
+                <div class="tech-badge">PHP</div>
+                <div class="tech-badge">Blade</div>
+                <div class="tech-badge">Breeze</div>
+                <div class="tech-badge">MySQL</div>
+                <div class="tech-badge">JavaScript</div>
+                <div class="tech-badge">AJAX</div>
+                <div class="tech-badge">HTML5</div>
+                <div class="tech-badge">CSS3</div>
+                <div class="tech-badge">Bootstrap</div>
+                <div class="tech-badge">Middleware</div>
+                <div class="tech-badge">Composer</div>
+                <div class="tech-badge">Git</div>
+            </div>
+        </div>
+
+        <!-- Card de Faculdade com informações expandidas -->
+        <div class="about-card">
+            <div class="card-header">
+                <svg class="card-icon" style="color: #16a34a;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
                 </svg>
                 <h2>Sobre a Faculdade</h2>
             </div>
             <p class="card-text">
                 Este projeto foi desenvolvido como parte do programa acadêmico da 
-                <strong style="color: #047857;">Faculdade de Tecnologia de Praia Grande (FATEC)</strong>, 
-                com o objetivo de modernizar e facilitar o processo de monitoria acadêmica.
+                <strong style="color: #16a34a;">Faculdade de Tecnologia de Praia Grande (FATEC)</strong>, 
+                vinculada ao Centro Paula Souza (CPS), com o objetivo de modernizar e facilitar o processo de monitoria acadêmica.
             </p>
             <div class="info-grid">
+                <div class="info-box">
+                    <h3>Instituição</h3>
+                    <p>FATEC Praia Grande</p>
+                </div>
+                <div class="info-box">
+                    <h3>Rede</h3>
+                    <p>Centro Paula Souza (CPS)</p>
+                </div>
                 <div class="info-box">
                     <h3>Curso</h3>
                     <p>Análise e Desenvolvimento de Sistemas</p>
@@ -257,7 +323,7 @@
         </div>
 
         <div class="btn-container">
-            <a href="{{ url('/') }}" class="btn-back">
+            <a href="{{ url('/') }}" class="back-btn">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
                 </svg>

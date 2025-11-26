@@ -1,66 +1,108 @@
 # Projeto de Monitoria
 
-O objetivo do projeto é fornecer uma plataforma de fácil gestão e manuseio, onde usuários, monitores ou alunos possam exercer e prestar sua função de forma mais dinâmica e organizada.
+O objetivo do projeto é fornecer uma plataforma simples e eficiente para gerenciar sessões de monitoria, permitindo que **alunos** e **monitores** interajam de forma organizada.  
+A aplicação oferece cadastro, gerenciamento de disponibilidade, agendamento de sessões e sistema de avaliação após cada monitoria concluída.
 
 ---
 
-## 🚀 Como rodar?
+## 🚀 Como rodar o projeto
 
-```bash
-git clone https://github.com/jeanpolski/projetoMonitoria1
-cd <DIRETORIO_DO_REPOSITORIO>
-cp .env.example .env
-```
+### 1️⃣ Clonar e configurar o ambiente
 
-1. Abra o arquivo `.env` e altere:
+git clone https://github.com/jeanpolski/projetoMonitoria1  
+cd projetoMonitoria1  
+cp .env.example .env  
 
-   * `DB_DATABASE=<NOME_DO_SEU_BANCO>`
-   * `DB_CONNECTION=<BANCO_DE_DADOS>` — (usei `mysql` no meu caso)
-2. Remova quaisquer comentários relacionados ao DB (se houver).
-3. Abra o XAMPP e inicie o **Apache** e o **MySQL**.
-4. Crie um banco de dados com o mesmo nome usado em `DB_DATABASE`.
+### 2️⃣ Configurar o arquivo `.env`
 
-Em seguida, execute:
+Atualize:
 
-```bash
-php artisan key:generate
-composer install
-php artisan migrate
-php artisan serve
-```
+- DB_CONNECTION=mysql  
+- DB_DATABASE=<NOME_DO_BANCO>  
+- DB_USERNAME=<USUARIO>  
+- DB_PASSWORD=<SENHA>  
+
+Remova comentários sobre banco, caso existam.
+
+### 3️⃣ Preparar o ambiente
+
+composer install  
+php artisan key:generate  
+php artisan migrate  
+php artisan serve  
+
+A aplicação estará disponível em:  
+http://localhost:8000
+
+---
+
+## 🧩 Tecnologias Utilizadas
+
+### 🔹 Backend e Estrutura
+- **Laravel (PHP)** — Framework principal.
+- **Eloquent ORM** — Manipulação das tabelas.
+- **Middleware (`auth`)** — Proteção de rotas.
+- **Laravel Breeze** — Autenticação completa.
+- **Composer** — Gerenciamento de dependências PHP.
+
+### 🔹 Frontend
+- **Blade** — Template engine.
+- **JavaScript (Vanilla)** — Funções de interação.
+- **AJAX (Fetch API)** — Envio de avaliações sem recarregar a página.
+- **HTML5 e CSS3** — Estrutura e estilo.
+- **TailwindCSS** — Em telas de login/registro via Breeze.
+- **Bootstrap** — Layout das páginas internas.
+
+### 🔹 Banco de Dados
+- **MySQL**
+
+### 🔹 Versionamento
+- **Git + GitHub**
 
 ---
 
 ## 📘 Diário de Progressão
 
-### ✅ Feito:
+### ✅ Concluído
+- CRUD completo das entidades:
+  - Monitores  
+  - Sessões  
+  - Matérias  
+  - Disponibilidade  
+  - Avaliações  
+  - Usuários  
+- Telas protegidas com middleware `auth`
+- Sistema de avaliação usando AJAX
+- Login e registro com Laravel Breeze
+- Layout responsivo com Bootstrap
+- Migrations e models configurados
 
-* Construído CRUD.
-* Banco de dados: **MySQL**.
-* Tabelas de **Monitores**, **Matérias**, **Sessões**, **Disponibilidade**, **Avaliações** e **Usuários**.
-* Models:
+### 🛠️ A fazer
+- [x] Refinar visual mobile/desktop  
+- [x] Criar permissões específicas para aluno x monitor  
+- [ ] Restringir avaliação ao aluno disciplinado
+- [ ] Histórico de sessões por usuário  
+- [ ] Criar painel administrativo mais detalhado  
 
-  * `MonitoriaAvailability`
-  * `Rating`
-  * `Session`
-  * `Subject`
-  * `Monitors`
+---
 
-### 🛠️ A fazer:
+## 🗺️ Navegação do Sistema
 
-* [ ] **Refinar Views**: refinar visualização mobile/desktop de algumas telas.
-* [ ] **Autenticação**: diferenciar alunos de monitores e suas permissões.
+**/** — Página inicial  
+**/sessions** — Lista de sessões  
+**/sessions/{id}/rate** — Avaliação da sessão  
+**/monitors** — Cadastro de monitores  
+**/availability** — Grade de horários  
+**/subjects** — Matérias cadastradas  
+**/register-monitor** — Área para criação de login de monitor, protegida por autenticação
+**/register** — Área para criação de login de aluno
+**/login** - Área para login de aluno/monitor
 
-### 🗺 Navegação:
+---
 
-* / -- Página Inicial.
-* /sessions -- Mostra sessões marcadas pelos monitores.
-* /sessions/id/rate -- Usuários podem avaliar uma sessão já concluída.
-* /monitors -- Registra monitores e valida o Aluno como um.
-* /availability -- Mostra horário semanal de atuação do monitor.
-* /subjects -- Mostra matérias matriculadas na grade.
-
-
-### 📋 Notas:
+## 📋 Notas
+- O sistema utiliza **Bootstrap** nas telas internas e **TailwindCSS** nas telas geradas pelo Breeze.  
+- O rating usa JavaScript + Fetch API com CSRF protection.  
+- Todo CRUD foi feito com Eloquent ORM.  
 
 ---

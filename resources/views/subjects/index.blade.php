@@ -9,7 +9,7 @@
         margin: 0 auto;
         padding: 32px 24px;
     }
-    
+
     .page-header {
         display: flex;
         align-items: center;
@@ -18,14 +18,14 @@
         flex-wrap: wrap;
         gap: 16px;
     }
-    
+
     .page-title {
         font-size: 32px;
         font-weight: 700;
         color: #0f172a;
         margin: 0;
     }
-    
+
     .btn-add {
         background: #3b82f6;
         color: white;
@@ -40,14 +40,14 @@
         gap: 8px;
         transition: all 0.2s;
     }
-    
+
     .btn-add:hover {
         background: #2563eb;
         transform: translateY(-1px);
         box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
         color: white;
     }
-    
+
     .filters-card {
         background: white;
         border-radius: 16px;
@@ -56,11 +56,11 @@
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
         border: 1px solid #e2e8f0;
     }
-    
+
     .search-box {
         position: relative;
     }
-    
+
     .search-icon {
         position: absolute;
         left: 16px;
@@ -70,7 +70,7 @@
         width: 20px;
         height: 20px;
     }
-    
+
     .search-input {
         width: 100%;
         padding: 14px 16px 14px 48px;
@@ -79,13 +79,13 @@
         font-size: 15px;
         transition: all 0.2s;
     }
-    
+
     .search-input:focus {
         border-color: #3b82f6;
         box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
         outline: none;
     }
-    
+
     .subjects-table-card {
         background: white;
         border-radius: 16px;
@@ -94,22 +94,22 @@
         border: 1px solid #e2e8f0;
         margin-bottom: 24px;
     }
-    
+
     .table-responsive {
         overflow-x: auto;
     }
-    
+
     .subjects-table {
         width: 100%;
         margin: 0;
         border-collapse: collapse;
     }
-    
+
     .subjects-table thead {
         background: #f8fafc;
         border-bottom: 2px solid #e2e8f0;
     }
-    
+
     .subjects-table thead th {
         padding: 16px 20px;
         text-align: left;
@@ -120,27 +120,27 @@
         letter-spacing: 0.5px;
         border: none;
     }
-    
+
     .subjects-table tbody tr {
         border-bottom: 1px solid #f1f5f9;
         transition: background 0.15s;
     }
-    
+
     .subjects-table tbody tr:hover {
         background: #f8fafc;
     }
-    
+
     .subjects-table tbody tr:last-child {
         border-bottom: none;
     }
-    
+
     .subjects-table tbody td {
         padding: 16px 20px;
         font-size: 15px;
         color: #334155;
         vertical-align: middle;
     }
-    
+
     .monitor-badge {
         display: inline-flex;
         align-items: center;
@@ -153,12 +153,12 @@
         color: #2563eb;
         border: 1px solid #dbeafe;
     }
-    
+
     .action-buttons {
         display: flex;
         gap: 8px;
     }
-    
+
     .btn-action {
         width: 36px;
         height: 36px;
@@ -171,31 +171,31 @@
         transition: all 0.2s;
         text-decoration: none;
     }
-    
+
     .btn-action:hover {
         transform: translateY(-2px);
     }
-    
+
     .btn-edit {
         background: #eff6ff;
         color: #3b82f6;
     }
-    
+
     .btn-edit:hover {
         background: #dbeafe;
         box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
     }
-    
+
     .btn-delete {
         background: #fef2f2;
         color: #ef4444;
     }
-    
+
     .btn-delete:hover {
         background: #fee2e2;
         box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
     }
-    
+
     .empty-state {
         text-align: center;
         padding: 80px 24px;
@@ -203,40 +203,40 @@
         border-radius: 16px;
         border: 2px dashed #e2e8f0;
     }
-    
+
     .empty-state-icon {
         width: 80px;
         height: 80px;
         margin: 0 auto 24px;
         color: #cbd5e1;
     }
-    
+
     .empty-state-title {
         font-size: 20px;
         font-weight: 600;
         color: #334155;
         margin-bottom: 8px;
     }
-    
+
     .empty-state-text {
         color: #64748b;
         font-size: 15px;
         margin-bottom: 24px;
     }
-    
+
     .no-results {
         display: none;
         text-align: center;
         padding: 60px 24px;
     }
-    
+
     .no-results-icon {
         width: 64px;
         height: 64px;
         margin: 0 auto 16px;
         color: #cbd5e1;
     }
-    
+
     .btn-back {
         background: white;
         color: #64748b;
@@ -251,31 +251,31 @@
         gap: 8px;
         transition: all 0.2s;
     }
-    
+
     .btn-back:hover {
         background: #f8fafc;
         border-color: #cbd5e1;
         color: #334155;
         transform: translateY(-1px);
     }
-    
+
     .alert {
         border-radius: 12px;
         margin-bottom: 24px;
         border: none;
         padding: 16px 20px;
     }
-    
+
     @media (max-width: 768px) {
         .page-header {
             flex-direction: column;
             align-items: flex-start;
         }
-        
+
         .page-title {
             font-size: 24px;
         }
-        
+
         .subjects-table thead th,
         .subjects-table tbody td {
             padding: 12px 16px;
@@ -288,6 +288,7 @@
 <div class="subjects-container">
     <div class="page-header">
         <h1 class="page-title">Matérias</h1>
+        @if(auth()->user()->role === 'monitor')
         <a href="{{ route('subjects.create') }}" class="btn-add">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -295,20 +296,21 @@
             </svg>
             Adicionar Matéria
         </a>
+        @endif
     </div>
 
     @if(session('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Sucesso!</strong> {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Sucesso!</strong> {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
     @endif
 
     @if(session('error'))
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Erro!</strong> {{ session('error') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Erro!</strong> {{ session('error') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
     @endif
 
     @if($subjects->count() > 0)
@@ -334,15 +336,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                @foreach($subjects as $subject)
-                    <tr class="subject-row" 
+                    @foreach($subjects as $subject)
+                    <tr class="subject-row"
                         data-search="{{ strtolower($subject->name) }} {{ strtolower($subject->description ?? '') }}">
                         <td><strong>{{ $subject->name }}</strong></td>
                         <td>
                             @if($subject->description)
-                                {{ Str::limit($subject->description, 80) }}
+                            {{ Str::limit($subject->description, 80) }}
                             @else
-                                <span style="color: #94a3b8;">-</span>
+                            <span style="color: #94a3b8;">-</span>
                             @endif
                         </td>
                         <td>
@@ -355,6 +357,7 @@
                             </span>
                         </td>
                         <td>
+                            @if(auth()->user()->role === 'monitor')
                             <div class="action-buttons">
                                 <a href="{{ route('subjects.edit', $subject->id) }}" class="btn-action btn-edit" title="Editar">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -363,13 +366,13 @@
                                     </svg>
                                 </a>
                                 @php
-                                    $confirmMsg = 'Tem certeza que deseja excluir esta matéria?';
-                                    if ($subject->monitores_count > 0) {
-                                        $confirmMsg .= ' Atenção: Esta matéria possui ' . $subject->monitores_count . ' monitor(es) vinculado(s)!';
-                                    }
+                                $confirmMsg = 'Tem certeza que deseja excluir esta matéria?';
+                                if ($subject->monitores_count > 0) {
+                                $confirmMsg .= ' Atenção: Esta matéria possui ' . $subject->monitores_count . ' monitor(es) vinculado(s)!';
+                                }
                                 @endphp
                                 <form action="{{ route('subjects.destroy', $subject->id) }}" method="POST" style="display:inline; margin: 0;"
-                                      onsubmit="return confirm('{{ $confirmMsg }}')">
+                                    onsubmit="return confirm('{{ $confirmMsg }}')">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn-action btn-delete" title="Excluir">
@@ -380,9 +383,12 @@
                                     </button>
                                 </form>
                             </div>
+                            @else
+                            <span style="color:#94a3b8;">—</span>
+                            @endif
                         </td>
                     </tr>
-                @endforeach
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -405,6 +411,7 @@
         </svg>
         <h4 class="empty-state-title">Nenhuma matéria cadastrada</h4>
         <p class="empty-state-text">Comece adicionando a primeira matéria ao sistema</p>
+        @if(auth()->user()->role === 'monitor')
         <a href="{{ route('subjects.create') }}" class="btn-add">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -412,6 +419,7 @@
             </svg>
             Adicionar Matéria
         </a>
+        @endif
     </div>
     @endif
 
@@ -429,37 +437,37 @@
 
 @section('scripts')
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.getElementById('searchInput');
-    const rows = document.querySelectorAll('.subject-row');
-    const noResults = document.getElementById('noResults');
-    const table = document.querySelector('.subjects-table-card');
-    
-    if (searchInput) {
-        searchInput.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase().trim();
-            let visibleCount = 0;
-            
-            rows.forEach(row => {
-                const searchData = row.dataset.search;
-                
-                if (searchTerm === '' || searchData.includes(searchTerm)) {
-                    row.style.display = '';
-                    visibleCount++;
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('searchInput');
+        const rows = document.querySelectorAll('.subject-row');
+        const noResults = document.getElementById('noResults');
+        const table = document.querySelector('.subjects-table-card');
+
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase().trim();
+                let visibleCount = 0;
+
+                rows.forEach(row => {
+                    const searchData = row.dataset.search;
+
+                    if (searchTerm === '' || searchData.includes(searchTerm)) {
+                        row.style.display = '';
+                        visibleCount++;
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+
+                if (visibleCount === 0) {
+                    table.style.display = 'none';
+                    noResults.style.display = 'block';
                 } else {
-                    row.style.display = 'none';
+                    table.style.display = 'block';
+                    noResults.style.display = 'none';
                 }
             });
-            
-            if (visibleCount === 0) {
-                table.style.display = 'none';
-                noResults.style.display = 'block';
-            } else {
-                table.style.display = 'block';
-                noResults.style.display = 'none';
-            }
-        });
-    }
-});
+        }
+    });
 </script>
 @endsection

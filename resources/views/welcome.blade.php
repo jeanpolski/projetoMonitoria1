@@ -9,35 +9,35 @@
         margin: 0 auto;
         padding: 60px 24px;
     }
-    
+
     .header-section {
         margin-bottom: 48px;
         animation: fadeInUp 0.6s ease-out;
     }
-    
+
     .logo-container {
         background: white;
         border-radius: 16px;
         padding: 32px;
         margin-bottom: 40px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
         display: flex;
         justify-content: center;
         align-items: center;
         border: 1px solid #e2e8f0;
     }
-    
+
     .logo-img {
         height: 80px;
         max-width: 100%;
         object-fit: contain;
     }
-    
+
     .title-section {
         text-align: center;
         margin-bottom: 12px;
     }
-    
+
     .title-section h1 {
         font-size: 2.5rem;
         font-weight: 700;
@@ -45,40 +45,42 @@
         margin-bottom: 12px;
         letter-spacing: -0.025em;
     }
-    
+
     .title-section p {
         font-size: 1.125rem;
         color: #64748b;
         font-weight: 400;
     }
-    
+
     .menu-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 24px;
         animation: fadeIn 0.8s ease-out;
     }
-    
+
     @keyframes fadeInUp {
         from {
             opacity: 0;
             transform: translateY(20px);
         }
+
         to {
             opacity: 1;
             transform: translateY(0);
         }
     }
-    
+
     @keyframes fadeIn {
         from {
             opacity: 0;
         }
+
         to {
             opacity: 1;
         }
     }
-    
+
     .menu-card {
         background: white;
         border-radius: 12px;
@@ -86,19 +88,19 @@
         text-decoration: none;
         color: #0f172a;
         transition: all 0.2s ease;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
         border: 1px solid #e2e8f0;
         display: flex;
         flex-direction: column;
         gap: 16px;
     }
-    
+
     .menu-card:hover {
         transform: translateY(-4px);
-        box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
         border-color: #cbd5e1;
     }
-    
+
     .menu-icon-wrapper {
         width: 56px;
         height: 56px;
@@ -108,65 +110,65 @@
         justify-content: center;
         transition: all 0.2s ease;
     }
-    
+
     .menu-card:hover .menu-icon-wrapper {
         transform: scale(1.05);
     }
-    
+
     .menu-card.sessions .menu-icon-wrapper {
         background: #dbeafe;
     }
-    
+
     .menu-card.availabilities .menu-icon-wrapper {
         background: #fce7f3;
     }
-    
+
     .menu-card.monitors .menu-icon-wrapper {
         background: #ddd6fe;
     }
-    
+
     .menu-card.subjects .menu-icon-wrapper {
         background: #d1fae5;
     }
-    
+
     .menu-icon {
         width: 28px;
         height: 28px;
     }
-    
+
     .menu-card.sessions .menu-icon {
         color: #1e40af;
     }
-    
+
     .menu-card.availabilities .menu-icon {
         color: #be185d;
     }
-    
+
     .menu-card.monitors .menu-icon {
         color: #6d28d9;
     }
-    
+
     .menu-card.subjects .menu-icon {
         color: #047857;
     }
-    
+
     .menu-content {
         flex: 1;
     }
-    
+
     .menu-title {
         font-size: 1.25rem;
         font-weight: 600;
         margin-bottom: 8px;
         color: #0f172a;
     }
-    
+
     .menu-description {
         font-size: 0.9375rem;
         color: #64748b;
         line-height: 1.6;
     }
-    
+
     .menu-arrow {
         width: 20px;
         height: 20px;
@@ -174,47 +176,47 @@
         transition: all 0.2s ease;
         align-self: flex-end;
     }
-    
+
     .menu-card:hover .menu-arrow {
         color: #64748b;
         transform: translateX(4px);
     }
-    
+
     @media (max-width: 768px) {
         .home-container {
             padding: 40px 16px;
         }
-        
+
         .title-section h1 {
             font-size: 2rem;
         }
-        
+
         .title-section p {
             font-size: 1rem;
         }
-        
+
         .menu-grid {
             grid-template-columns: 1fr;
             gap: 16px;
         }
-        
+
         .logo-container {
             padding: 24px;
         }
-        
+
         .logo-img {
             height: 60px;
         }
-        
+
         .menu-card {
             padding: 24px;
         }
-        
+
         .menu-icon-wrapper {
             width: 48px;
             height: 48px;
         }
-        
+
         .menu-icon {
             width: 24px;
             height: 24px;
@@ -229,13 +231,13 @@
         <div class="logo-container">
             <img src="https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/151/2024/04/fatec_praia_grande.png" alt="FATEC Praia Grande - CPS" class="logo-img">
         </div>
-        
+
         <div class="title-section">
             <h1>Sistema de Monitoria</h1>
             <p>Gerencie sessões, monitores e horários de forma eficiente</p>
         </div>
     </div>
-    
+
     <div class="menu-grid">
         <a href="{{ url('/sessions') }}" class="menu-card sessions">
             <div class="menu-icon-wrapper">
@@ -253,7 +255,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
         </a>
-        
+
         <a href="{{ url('/availabilities') }}" class="menu-card availabilities">
             <div class="menu-icon-wrapper">
                 <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -270,7 +272,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
         </a>
-        
+
         <a href="{{ url('/monitors') }}" class="menu-card monitors">
             <div class="menu-icon-wrapper">
                 <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -287,7 +289,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
         </a>
-        
+
         <a href="{{ url('/subjects') }}" class="menu-card subjects">
             <div class="menu-icon-wrapper">
                 <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">

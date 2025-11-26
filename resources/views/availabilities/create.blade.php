@@ -80,7 +80,6 @@
         border-top: 2px solid #f1f5f9;
     }
     
-    /* Padronizando botões com mesmo tamanho e peso */
     .btn-primary-custom {
         flex: 1;
         background: #3b82f6;

@@ -7,7 +7,7 @@
         background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
         min-height: 100vh;
     }
-    
+
     .main-container {
         min-height: 100vh;
         display: flex;
@@ -15,7 +15,7 @@
         justify-content: center;
         padding: 40px 20px;
     }
-    
+
     .form-card {
         background: white;
         border-radius: 24px;
@@ -24,7 +24,7 @@
         max-width: 700px;
         width: 100%;
     }
-    
+
     .page-title {
         color: #1e293b;
         font-weight: 700;
@@ -32,14 +32,14 @@
         margin-bottom: 8px;
         text-align: center;
     }
-    
+
     .page-subtitle {
         color: #64748b;
         font-size: 16px;
         text-align: center;
         margin-bottom: 40px;
     }
-    
+
     .session-info-box {
         background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
         border-radius: 16px;
@@ -47,13 +47,13 @@
         margin-bottom: 32px;
         color: white;
     }
-    
+
     .session-info-title {
         font-weight: 600;
         font-size: 18px;
         margin-bottom: 16px;
     }
-    
+
     .session-info-item {
         display: flex;
         align-items: start;
@@ -61,11 +61,11 @@
         margin-bottom: 12px;
         color: rgba(255, 255, 255, 0.95);
     }
-    
+
     .session-info-item:last-child {
         margin-bottom: 0;
     }
-    
+
     .form-label-custom {
         font-weight: 600;
         color: #334155;
@@ -75,7 +75,7 @@
         align-items: center;
         gap: 8px;
     }
-    
+
     .form-control-custom {
         border: 2px solid #e2e8f0;
         border-radius: 12px;
@@ -84,17 +84,17 @@
         transition: all 0.2s;
         width: 100%;
     }
-    
+
     .form-control-custom:focus {
         border-color: #3b82f6;
         box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
         outline: none;
     }
-    
+
     textarea.form-control-custom {
         resize: none;
     }
-    
+
     .btn-container {
         display: flex;
         gap: 12px;
@@ -102,7 +102,7 @@
         padding-top: 32px;
         border-top: 2px solid #f1f5f9;
     }
-    
+
     .btn-primary-custom {
         flex: 1;
         background: #10b981;
@@ -115,14 +115,14 @@
         transition: all 0.2s;
         cursor: pointer;
     }
-    
+
     .btn-primary-custom:hover {
         background: #059669;
         transform: translateY(-2px);
         box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
         color: white;
     }
-    
+
     .btn-secondary-custom {
         flex: 1;
         background: white;
@@ -138,23 +138,23 @@
         align-items: center;
         justify-content: center;
     }
-    
+
     .btn-secondary-custom:hover {
         background: #f8fafc;
         border-color: #cbd5e1;
         color: #334155;
         text-decoration: none;
     }
-    
+
     .form-group {
         margin-bottom: 24px;
     }
-    
+
     @media (max-width: 768px) {
         .form-card {
             padding: 32px 24px;
         }
-        
+
         .btn-container {
             flex-direction: column;
         }
@@ -207,7 +207,7 @@
             <div class="form-group">
                 <label for="rate" class="form-label-custom">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                     </svg>
                     Nota da Sessão (1 a 5)
                 </label>

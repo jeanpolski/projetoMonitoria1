@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class monitoriaProjeto1 extends Model
 {
-    
+    //
 }

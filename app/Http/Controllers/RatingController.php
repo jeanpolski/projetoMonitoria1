@@ -11,17 +11,22 @@ class RatingController extends Controller
     public function create($sessionId)
     {
         $session = Session::findOrFail($sessionId);
-        
+
         if (strtolower($session->status) !== 'concluida') {
             return redirect()->route('sessions.index')
                 ->with('error', 'Apenas sessões concluídas podem ser avaliadas!');
         }
-        
+
         if ($session->rating) {
             return redirect()->route('sessions.index')
                 ->with('error', 'Esta sessão já foi avaliada!');
         }
-        
+
+        if (auth()->id() !== $session->aluno_id) {
+            return redirect()->route('sessions.index')
+                ->with('error', 'Apenas o aluno pode avaliar esta sessão!');
+        }
+
         return view('ratings.create', compact('session'));
     }
 
@@ -37,23 +42,28 @@ class RatingController extends Controller
             'rate.max' => 'A nota máxima é 5.',
             'note.max' => 'O comentário não pode ter mais de 500 caracteres.',
         ]);
-        
+
         $session = Session::findOrFail($validated['session_id']);
-        
+
         if (strtolower($session->status) !== 'concluida') {
             return redirect()->route('sessions.index')
                 ->with('error', 'Apenas sessões concluídas podem ser avaliadas!');
         }
-        
+
         if ($session->rating) {
             return redirect()->route('sessions.index')
                 ->with('error', 'Esta sessão já foi avaliada!');
         }
-        
+
+        if (auth()->id() !== $session->aluno_id) {
+            return redirect()->route('sessions.index')
+                ->with('error', 'Apenas o mentorado pode avaliar esta sessão!');
+        }
+
         $validated['aluno_id'] = $session->aluno_id;
-        
+
         Rating::create($validated);
-        
+
         return redirect()->route('sessions.index')
             ->with('success', 'Avaliação enviada com sucesso! ⭐');
     }

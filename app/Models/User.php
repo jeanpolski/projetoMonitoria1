@@ -38,6 +38,11 @@ class User extends Authenticatable
             $this->hasMany(Session::class, 'aluno_id');
     }
 
+    public function hasRole($role)
+    {
+        return $this->role === $role;
+    }
+
     public function subject()
     {
         return $this->belongsTo(Subject::class);

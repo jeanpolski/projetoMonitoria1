@@ -32,7 +32,7 @@ class AvailabilityController extends Controller
         Availability::create($data);
 
         return redirect()->route('availabilities.index')
-                         ->with('success', 'Disponibilidade cadastrada com sucesso!');
+            ->with('success', 'Disponibilidade cadastrada com sucesso!');
     }
 
     public function show(Availability $availability)
@@ -58,7 +58,7 @@ class AvailabilityController extends Controller
         $availability->update($data);
 
         return redirect()->route('availabilities.index')
-                         ->with('success', 'Disponibilidade atualizada com sucesso!');
+            ->with('success', 'Disponibilidade atualizada com sucesso!');
     }
 
     public function destroy(Availability $availability)
@@ -66,6 +66,6 @@ class AvailabilityController extends Controller
         $availability->delete();
 
         return redirect()->route('availabilities.index')
-                         ->with('success', 'Disponibilidade excluída com sucesso!');
+            ->with('success', 'Disponibilidade excluída com sucesso!');
     }
 }

@@ -7,7 +7,7 @@
         background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
         min-height: 100vh;
     }
-    
+
     .main-container {
         min-height: 100vh;
         display: flex;
@@ -15,7 +15,7 @@
         justify-content: center;
         padding: 40px 20px;
     }
-    
+
     .form-card {
         background: white;
         border-radius: 24px;
@@ -24,7 +24,7 @@
         max-width: 700px;
         width: 100%;
     }
-    
+
     .page-title {
         color: #1e293b;
         font-weight: 700;
@@ -32,14 +32,14 @@
         margin-bottom: 8px;
         text-align: center;
     }
-    
+
     .page-subtitle {
         color: #64748b;
         font-size: 16px;
         text-align: center;
         margin-bottom: 40px;
     }
-    
+
     .form-label-custom {
         font-weight: 600;
         color: #334155;
@@ -49,7 +49,7 @@
         align-items: center;
         gap: 8px;
     }
-    
+
     .form-control-custom {
         border: 2px solid #e2e8f0;
         border-radius: 12px;
@@ -58,19 +58,19 @@
         transition: all 0.2s;
         width: 100%;
     }
-    
+
     .form-control-custom:focus {
         border-color: #3b82f6;
         box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
         outline: none;
     }
-    
+
     .time-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 16px;
     }
-    
+
     .btn-container {
         display: flex;
         gap: 12px;
@@ -78,7 +78,7 @@
         padding-top: 32px;
         border-top: 2px solid #f1f5f9;
     }
-    
+
     .btn-primary-custom {
         flex: 1;
         background: #3b82f6;
@@ -91,14 +91,14 @@
         transition: all 0.2s;
         cursor: pointer;
     }
-    
+
     .btn-primary-custom:hover {
         background: #2563eb;
         transform: translateY(-2px);
         box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
         color: white;
     }
-    
+
     .btn-secondary-custom {
         flex: 1;
         background: white;
@@ -114,27 +114,27 @@
         align-items: center;
         justify-content: center;
     }
-    
+
     .btn-secondary-custom:hover {
         background: #f8fafc;
         border-color: #cbd5e1;
         color: #334155;
         text-decoration: none;
     }
-    
+
     .form-group {
         margin-bottom: 24px;
     }
-    
+
     @media (max-width: 768px) {
         .form-card {
             padding: 32px 24px;
         }
-        
+
         .time-grid {
             grid-template-columns: 1fr;
         }
-        
+
         .btn-container {
             flex-direction: column;
         }
@@ -161,9 +161,9 @@
                 <select name="monitor_id" id="monitor_id" class="form-control form-control-custom" required>
                     <option value="">Selecione o monitor</option>
                     @foreach($monitores as $monitor)
-                        <option value="{{ $monitor->id }}" {{ $monitor->id == $availability->monitor_id ? 'selected' : '' }}>
-                            {{ $monitor->name }}
-                        </option>
+                    <option value="{{ $monitor->id }}" {{ $monitor->id == $availability->monitor_id ? 'selected' : '' }}>
+                        {{ $monitor->name }}
+                    </option>
                     @endforeach
                 </select>
             </div>
@@ -181,9 +181,9 @@
                 <select name="dia_semana" id="dia_semana" class="form-control form-control-custom" required>
                     <option value="">Selecione o dia</option>
                     @foreach(\App\Models\Availability::diasSemana() as $key => $label)
-                        <option value="{{ $key }}" {{ $key == $availability->dia_semana ? 'selected' : '' }}>
-                            {{ $label }}
-                        </option>
+                    <option value="{{ $key }}" {{ $key == $availability->dia_semana ? 'selected' : '' }}>
+                        {{ $label }}
+                    </option>
                     @endforeach
                 </select>
             </div>
