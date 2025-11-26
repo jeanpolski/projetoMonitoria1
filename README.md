@@ -1,109 +1,76 @@
-# Projeto de Monitoria FATEC PG
+# Monitoria FATEC PG
 
-O objetivo do projeto é fornecer uma plataforma simples e eficiente para gerenciar sessões de monitoria, permitindo que **alunos** e **monitores** interajam de forma organizada.  
-A aplicação oferece cadastro, gerenciamento de disponibilidade, agendamento de sessões e sistema de avaliação após cada monitoria concluída.
+Sistema de gerenciamento de monitorias para alunos e monitores da faculdade. Permite agendamento de sessões, avaliações entre pares e visualização de disponibilidade.
 
----
+## Instalação
 
-## 🚀 Como rodar o projeto
+Clone o repositório e configure as variáveis de ambiente:
 
-### 1️⃣ Clonar e configurar o ambiente
+\`\`\`bash
+git clone https://github.com/jeanpolski/projetoMonitoria1
+cd projetoMonitoria1
+cp .env.example .env
+\`\`\`
 
-git clone https://github.com/jeanpolski/projetoMonitoria1  
-cd projetoMonitoria1  
-cp .env.example .env  
+Configure o banco de dados no `.env`:
 
-### 2️⃣ Configurar o arquivo `.env`
+\`\`\`
+DB_CONNECTION=mysql
+DB_DATABASE=seu_banco_aqui
+DB_USERNAME=root
+DB_PASSWORD=sua_senha
+\`\`\`
 
-Atualize:
+Instale as dependências e inicie o servidor:
 
-- DB_CONNECTION=mysql  
-- DB_DATABASE=<NOME_DO_BANCO>  
-- DB_USERNAME=<USUARIO>  
-- DB_PASSWORD=<SENHA>  
+\`\`\`bash
+composer install
+php artisan key:generate
+php artisan migrate
+php artisan serve
+\`\`\`
 
-Remova comentários sobre banco, caso existam.
+Acesse a aplicação em `http://localhost:8000`
 
-### 3️⃣ Preparar o ambiente
+## Tecnologias
 
-composer install  
-php artisan key:generate  
-php artisan migrate  
-php artisan serve  
+- **Backend**: Laravel 11, PHP, Eloquent ORM, Laravel Breeze
+- **Frontend**: Blade, Bootstrap, TailwindCSS, JavaScript
+- **Banco**: MySQL
+- **Versionamento**: Git
 
-A aplicação estará disponível em:  
-http://localhost:8000
+## Funcionalidades
 
----
+- Autenticação de usuários (alunos e monitores)
+- CRUD completo de monitorias, matérias, horários e avaliações
+- Sistema de avaliações em tempo real
+- Controle de permissões por tipo de usuário
+- Design responsivo
+- Rotas protegidas com middleware
 
-## 🧩 Tecnologias Utilizadas
+## Próximas melhorias
 
-### 🔹 Backend e Estrutura
-- **Laravel (PHP)** — Framework principal.
-- **Eloquent ORM** — Manipulação das tabelas.
-- **Middleware (`auth`)** — Proteção de rotas.
-- **Laravel Breeze** — Autenticação completa.
-- **Composer** — Gerenciamento de dependências PHP.
+- Histórico de monitorias por usuário
+- Painel administrativo expandido
 
-### 🔹 Frontend
-- **Blade** — Template engine.
-- **JavaScript (Vanilla)** — Funções de interação.
-- **AJAX (Fetch API)** — Envio de avaliações sem recarregar a página.
-- **HTML5 e CSS3** — Estrutura e estilo.
-- **TailwindCSS** — Em telas de login/registro via Breeze.
-- **Bootstrap** — Layout das páginas internas.
+## Principais rotas
 
-### 🔹 Banco de Dados
-- **MySQL**
+| Rota | Descrição |
+|------|-----------|
+| `/` | Página inicial |
+| `/about` | Sobre o projeto |
+| `/sessions` | Todas as monitorias |
+| `/sessions/{id}/rate` | Avaliar uma monitoria |
+| `/monitors` | Lista de monitores |
+| `/monitors-create` | Cadastrar novo monitor |
+| `/availability` | Grade de horários |
+| `/subjects` | Matérias disponíveis |
+| `/register` | Criar conta |
+| `/login` | Fazer login |
 
-### 🔹 Versionamento
-- **Git + GitHub**
+## Detalhes técnicos
 
----
-
-## 📘 Diário de Progressão
-
-### ✅ Concluído
-- CRUD completo das entidades:
-  - Monitores  
-  - Sessões  
-  - Matérias  
-  - Disponibilidade  
-  - Avaliações  
-  - Usuários  
-- Telas protegidas com middleware
-- Sistema de avaliação usando AJAX
-- Login e cadastro com Laravel Breeze
-- Layout responsivo com Bootstrap
-- Migrations e models configurados
-
-### 🛠️ A fazer
-- [x] Refinar visual mobile/desktop  
-- [x] Criar permissões específicas para aluno x monitor  
-- [x] Restringir avaliação ao aluno disciplinado
-- [ ] Histórico de sessões por usuário  
-- [ ] Criar painel administrativo mais detalhado  
-
----
-
-## 🗺️ Navegação do Sistema
-
-**/** — Página inicial
-**/about** — Página contendo informações do projeto
-**/sessions** — Lista de sessões  
-**/sessions/{id}/rate** — Avaliação da sessão  
-**/monitors** — Cadastro de monitores  
-**/monitors-create** — Área para criação de login de monitor, protegida por autenticação
-**/availability** — Grade de horários  
-**/subjects** — Matérias cadastradas  
-**/register** — Área para criação de login de aluno
-**/login** - Área para login de aluno/monitor
-
----
-
-## 📋 Notas
-- O sistema utiliza **Bootstrap** nas telas internas e **TailwindCSS** nas telas geradas pelo Breeze.  
-- O rating usa JavaScript + Fetch API com CSRF protection.  
-- Todo CRUD foi feito com Eloquent ORM.  
-
----
+- Bootstrap e TailwindCSS integrados
+- Avaliações com JavaScript + Fetch API (CSRF protegido)
+- CRUD implementado com Eloquent ORM
+- Versionamento completo no Git
