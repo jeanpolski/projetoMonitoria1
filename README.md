@@ -1,4 +1,4 @@
-# Projeto de Monitoria
+# Projeto de Monitoria FATEC PG
 
 O objetivo do projeto é fornecer uma plataforma simples e eficiente para gerenciar sessões de monitoria, permitindo que **alunos** e **monitores** interajam de forma organizada.  
 A aplicação oferece cadastro, gerenciamento de disponibilidade, agendamento de sessões e sistema de avaliação após cada monitoria concluída.
@@ -71,9 +71,9 @@ http://localhost:8000
   - Disponibilidade  
   - Avaliações  
   - Usuários  
-- Telas protegidas com middleware `auth`
+- Telas protegidas com middleware
 - Sistema de avaliação usando AJAX
-- Login e registro com Laravel Breeze
+- Login e cadastro com Laravel Breeze
 - Layout responsivo com Bootstrap
 - Migrations e models configurados
 
@@ -88,13 +88,14 @@ http://localhost:8000
 
 ## 🗺️ Navegação do Sistema
 
-**/** — Página inicial  
+**/** — Página inicial
+**/about** — Página contendo informações do projeto
 **/sessions** — Lista de sessões  
 **/sessions/{id}/rate** — Avaliação da sessão  
 **/monitors** — Cadastro de monitores  
+**/monitors-create** — Área para criação de login de monitor, protegida por autenticação
 **/availability** — Grade de horários  
 **/subjects** — Matérias cadastradas  
-**/register-monitor** — Área para criação de login de monitor, protegida por autenticação
 **/register** — Área para criação de login de aluno
 **/login** - Área para login de aluno/monitor
 
