@@ -80,7 +80,7 @@ http://localhost:8000
 ### 🛠️ A fazer
 - [x] Refinar visual mobile/desktop  
 - [x] Criar permissões específicas para aluno x monitor  
-- [ ] Restringir avaliação ao aluno disciplinado
+- [x] Restringir avaliação ao aluno disciplinado
 - [ ] Histórico de sessões por usuário  
 - [ ] Criar painel administrativo mais detalhado  
 
