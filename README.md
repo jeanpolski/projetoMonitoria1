@@ -14,7 +14,7 @@ cp .env.example .env
 
 Configure o banco de dados no `.env`:
 
-\`\`\`
+\`\`\`env
 DB_CONNECTION=mysql
 DB_DATABASE=seu_banco_aqui
 DB_USERNAME=root
