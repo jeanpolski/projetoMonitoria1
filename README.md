@@ -5,10 +5,10 @@ Sistema de gerenciamento de monitorias para a FATEC de Praia Grande. Plataforma 
 ## Início Rápido
 
 ### Pré-requisitos
-- PHP 8.1+
-- Composer
+- PHP 8.4+
+- Composer 2.8.12
 - MySQL 8.0+
-- Laravel 11+
+- Laravel 12+
 
 ### Instalação
 
