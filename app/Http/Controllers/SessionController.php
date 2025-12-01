@@ -19,10 +19,8 @@ class SessionController extends Controller
         $user = auth()->user();
 
         if ($user->role === 'aluno') {
-            // Se for aluno, mostrar apenas ele mesmo
             $alunos = collect([$user]);
         } else {
-            // Se for monitor ou admin, mostrar todos os alunos
             $alunos = User::where('role', 'aluno')->get();
         }
 

@@ -41,23 +41,26 @@ Route::middleware('auth')->group(function () {
 |--------------------------------------------------------------------------|
 */
 
-// Subjects — apenas listar/ver para alunos
-Route::get('subjects', [SubjectController::class, 'index'])->name('subjects.index');
-Route::get('subjects/show/{subject}', [SubjectController::class, 'show'])->name('subjects.show');
+Route::middleware('auth')->group(function () {
 
-// Monitors — apenas listar (index) para alunos
-Route::get('monitors', [MonitorController::class, 'index'])->name('monitors.index');
+    // Subjects — apenas listar/ver para alunos
+    Route::get('subjects', [SubjectController::class, 'index'])->name('subjects.index');
+    Route::get('subjects/show/{subject}', [SubjectController::class, 'show'])->name('subjects.show');
 
-// Disponibilidades — apenas listar/ver para alunos
-Route::get('availabilities', [AvailabilityController::class, 'index'])->name('availabilities.index');
-Route::get('availabilities/show/{availability}', [AvailabilityController::class, 'show'])->name('availabilities.show');
+    // Monitors — apenas listar (index) para alunos
+    Route::get('monitors', [MonitorController::class, 'index'])->name('monitors.index');
 
-// Sessions — aluno pode criar e ver, mas não editar
-Route::resource('sessions', SessionController::class)->only(['index', 'show', 'create', 'store']);
+    // Disponibilidades — apenas listar/ver para alunos
+    Route::get('availabilities', [AvailabilityController::class, 'index'])->name('availabilities.index');
+    Route::get('availabilities/show/{availability}', [AvailabilityController::class, 'show'])->name('availabilities.show');
 
-// Avaliação
-Route::get('/sessions/{session}/rate', [RatingController::class, 'create'])->name('ratings.create');
-Route::post('/ratings', [RatingController::class, 'store'])->name('ratings.store');
+    // Sessions — aluno pode criar e ver, mas não editar
+    Route::resource('sessions', SessionController::class)->only(['index', 'show', 'create', 'store']);
+
+    // Avaliação
+    Route::get('/sessions/{session}/rate', [RatingController::class, 'create'])->name('ratings.create');
+    Route::post('/ratings', [RatingController::class, 'store'])->name('ratings.store');
+});
 
 
 /*
