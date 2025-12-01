@@ -6,7 +6,7 @@ Sistema de gerenciamento de monitorias para a FATEC de Praia Grande. Plataforma 
 
 ### Pré-requisitos
 - PHP 8.4+
-- Composer 2.8.12
+- Composer 2.8+
 - MySQL 8.0+
 - Laravel 12+
 
@@ -28,7 +28,7 @@ Configure o arquivo `.env`:
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=monitoria
+DB_DATABASE=example
 DB_USERNAME=root
 DB_PASSWORD=
 ```
@@ -62,6 +62,7 @@ Acesse em `http://localhost:8000/`
 
 - **Monitor**;
 - **Aluno**;
+- **Visitante**;
 
 ## Rotas Principais
 
